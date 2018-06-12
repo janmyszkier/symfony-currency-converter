@@ -1,0 +1,34 @@
+.container {
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+h2.title {
+    border-bottom: 1px solid #000;
+}
+
+#calculator_from {
+    margin: 6px 0px;
+}
+
+#calculator_to {
+    margin: 6px 0px;
+}
+
+#conversionAmount,
+#conversionResult {
+    width: 130px;
+    height: 26px;
+    padding: 0 5px;
+}
+
+#currency_submit {
+    background-color: #646464;
+    color: #fff;
+    border-color: #fff #000 #000 #fff;
+    border-width: 1px;
+    width: 70px;
+    height: 30px;
+}
