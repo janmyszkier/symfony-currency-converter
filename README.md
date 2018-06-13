@@ -8,7 +8,7 @@ To run:
 2. Run `composer install`
 3. Modify parameters.yml and provide it with API KEY: 
 ```
-    apilayer_api_key: 2c37a7fab0b52ad934c3e551a8800cf5
+    apilayer_api_key: 9f051358a5a0ed5db26d4d10c12b3690
 ```
 4. Run `php bin/console assets:install`
 5. Run `php bin/console server:run`

@@ -9,14 +9,24 @@
             <div id="calculator_from">
                 <input type="number" id="conversionAmount" name="amount" type="text" value="123.45">
                 <select id="conversionFrom" name="from">
-                    <option value="USD">USD</option>
+                    {% for code,cur in currencies %} }}
+                        {% set selectedAttr = '' %}
+                        {% if code is same as("RUB") %}
+                            {% set selectedAttr = 'selected="selected"' %}
+                        {% endif %}
+                        <option value="{{ code }}" {{ selectedAttr }}>{{ code }}</option>
+                    {% endfor %}
                 </select>
             </div>
             <div id="calculator_to">
                 <input id="conversionResult" disabled="disabled">
                 <select id="conversionTo" name="to">
-                    {% for cur in currencies %} }}
-                        <option value="{{ cur }}">{{ cur }}</option>
+                    {% for code,cur in currencies %} }}
+                        {% set selectedAttr = '' %}
+                        {% if code is same as("PLN") %}
+                            {% set selectedAttr = 'selected="selected"' %}
+                        {% endif %}
+                        <option value="{{ code }}" {{ selectedAttr }}>{{ code }}</option>
                     {% endfor %}
                 </select>
             </div>
