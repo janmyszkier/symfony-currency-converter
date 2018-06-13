@@ -4,7 +4,6 @@ namespace AppBundle\Controller;
 
 use AppBundle\Service\ApiLayerConverter\SourceCurrencyNotSupportedException;
 use AppBundle\Service\ApiLayerConverter\TargetCurrencyNotSupportedException;
-use AppBundle\Service\CurrencyConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
