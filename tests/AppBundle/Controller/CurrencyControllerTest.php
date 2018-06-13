@@ -15,10 +15,19 @@ class CurrencyControllerTest extends WebTestCase
         $this->assertGreaterThan(350.00, $conversionResult->afterConversion);
     }
 
+    public function testRUBToPLNConversion()
+    {
+        $client = static::createClient();
+        $client->request('POST', '/query', ['from' => 'RUB', 'to' => 'PLN', 'amount' => 123.45]);
+        $conversionResult = json_decode($client->getResponse()->getContent());
+
+        $this->assertGreaterThan(6.50, $conversionResult->afterConversion);
+    }
+
     public function testUnsupportedSourceCurrency()
     {
         $client = static::createClient();
-        $client->request('POST', '/query', ['from' => 'EUR', 'to' => 'PLN', 'amount' => 100]);
+        $client->request('POST', '/query', ['from' => 'ABC', 'to' => 'PLN', 'amount' => 100]);
         $conversionResult = json_decode($client->getResponse()->getContent());
 
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
@@ -29,7 +38,7 @@ class CurrencyControllerTest extends WebTestCase
     public function testUnsupportedTargetCurrency()
     {
         $client = static::createClient();
-        $client->request('POST', '/query', ['from' => 'USD', 'to' => 'BTC', 'amount' => 100]);
+        $client->request('POST', '/query', ['from' => 'USD', 'to' => 'ABC', 'amount' => 100]);
         $conversionResult = json_decode($client->getResponse()->getContent());
 
         $this->assertEquals(400, $client->getResponse()->getStatusCode());
